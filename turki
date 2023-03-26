@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Allergy Website</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Allergy Website</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About Allergies</a></li>
+				<li><a href="types.html">Types of Allergies</a></li>
+				<li><a href="prevention.html">Prevention and Management</a></li>
+				<li><a href="resources.html">Resources</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<h2>Welcome to our Allergy Website</h2>
+		<p>Do you suffer from allergies? You're not alone. Our website is designed to provide you with information about allergies, how to manage them, and where to find additional resources.</p>
+
+		<h3>Popular Allergies</h3>
+		<ul>
+			<li><a href="types.html#food">Food Allergies</a></li>
+			<li><a href="types.html#seasonal">Seasonal Allergies</a></li>
+			<li><a href="types.html#animal">Animal Allergies</a></li>
+		</ul>
+
+		<form action="search.php" method="get">
+			<label for="search">Search:</label>
+			<input type="text" id="search" name="search" placeholder="Enter a search term">
+			<button type="submit">Go</button>
+		</form>
+	</main>
+
+	<footer>
+		<p>&copy; Allergy Website 2023</p>
+	</footer>
+
+</body>
+</html>
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: #c70039;
+}
+
+/* Main Content Styles */
+main {
+    padding: 40px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #c70039;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+form {
+    margin-top: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #c70039;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+// Function to toggle the navigation menu on mobile devices
+function toggleMenu() {
+    var menu = document.getElementById("menu");
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+}
+
+// Function to validate the email address entered in the contact form
+function validateEmail() {
+    var email = document.getElementById("email").value;
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var errorMessage = document.getElementById("error-message");
+    if (!pattern.test(email)) {
+        errorMessage.style.display = "block";
+        return false;
+    } else {
+        errorMessage.style.display = "none";
+        return true;
+    }
+}
+
+// Event listener for the navigation menu toggle button
+var toggleButton = document.getElementById("toggle-button");
+toggleButton.addEventListener("click", toggleMenu);
+
+// Event listener for the contact form submit button
+var submitButton = document.getElementById("submit-button");
+submitButton.addEventListener("click", function(event) {
+    if (!validateEmail()) {
+        event.preventDefault();
+    }
+});
